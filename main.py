@@ -21,9 +21,9 @@ if uploaded_file is not None:
         st.image(image, caption="Captured Image", use_column_width=True)
 
         system_prompt = ("당신은 10년 이상 분리수거를 해온 분리수거의 달인 입니다.\n", "한국의 분리수거 방식을 정확하게 인지하고 가이드를 해주세요.")
-        user_prompt = st.text_input("Enter a prompt for the image:", "Describe this image in detail.")
+        user_prompt = st.text_input("사진에 대해 묻고싶은 내용을 입력해주세요:", "어떻게 분리수거를 해야하나요?")
 
-        if st.button("Generate Description"):
+        if st.button("답변 생성"):
             try:
                 model = genai.GenerativeModel("gemini-2.0-flash", system_instruction=system_prompt)  # Or "gemini-pro-vision"
                 response = model.generate_content([user_prompt, image])
