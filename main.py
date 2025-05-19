@@ -18,7 +18,7 @@ if uploaded_file is not None:
             temp_file.write(bytes_data)
             image = Image.open(temp_file.name)
 
-        st.image(image, caption="Captured Image", use_column_width=True)
+        st.image(image, caption="Captured Image", use_container_width=True)
 
         system_prompt = ("당신은 10년 이상 분리수거를 해온 분리수거의 달인 입니다.\n", "한국의 분리수거 방식을 정확하게 인지하고 가이드를 해주세요.")
         user_prompt = st.text_input("사진에 대해 묻고싶은 내용을 입력해주세요:", "어떻게 분리수거를 해야하나요?")
